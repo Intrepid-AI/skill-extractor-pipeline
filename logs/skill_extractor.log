@@ -1,0 +1,241 @@
+2023-05-25 00:17:57,353 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 00:36:47,749 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 00:36:49,352 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 00:36:49,409 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 00:36:50,007 -- DEBUG -- src.pipeline -- skill_extractor -- (32) -- Text extracted from resume ./artifacts/jc.pdf
+2023-05-25 00:36:51,712 -- INFO -- src.pipeline -- skill_extractor -- (36) -- Extracted skills are ['encryption', 'inference', 'support', 'artificial intelligence', 'github', 'object detection', 'anomaly detection', 'ai', 'database', 'rabbitmq', 'machine learning', 'flask', 'python', 'tensorflow', 'plotly', 'simulation', 'network model', 'petroleum engineering', 'software', 'framework', 'engineering', 'opencv', 'random forest', 'computer vision', 'time series', 'algorithm', 'numpy', 'deep learning', 'pytorch', 'data science', 'analytics']
+2023-05-25 00:44:06,797 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 00:44:08,632 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 00:44:08,746 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 00:44:16,101 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:44:16,101 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:44:16,668 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:44:16,668 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:44:19,272 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:44:19,272 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:44:19,272 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:44:19,848 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:44:19,848 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:44:19,848 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:44:21,701 -- INFO -- src.pipeline -- skill_extractor_2 -- (45) -- Extracted skills are ['opencv', 'ai', 'support', 'plotly', 'numpy', 'analytics', 'framework', 'simulation', 'tensorflow', 'software', 'anomaly detection', 'data science', 'database', 'time series', 'rabbitmq', 'encryption', 'petroleum engineering', 'engineering', 'python', 'machine learning', 'deep learning', 'inference', 'github', 'computer vision', 'random forest', 'object detection', 'flask', 'artificial intelligence', 'pytorch', 'network model', 'algorithm']
+2023-05-25 00:46:13,847 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:13,847 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:13,847 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:13,847 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:13,847 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:15,320 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:15,320 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:15,320 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:15,320 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:15,320 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:17,229 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:17,229 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:17,229 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:17,229 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:17,229 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:17,229 -- INFO -- __main__ -- <module> -- (12) -- Resume Uploaded
+2023-05-25 00:46:18,654 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:18,654 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:18,654 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:18,654 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:18,654 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:18,654 -- INFO -- __main__ -- <module> -- (19) -- Text extracted from Resume
+2023-05-25 00:46:18,890 -- INFO -- src.pipeline -- skill_extractor_2 -- (45) -- Extracted skills are ['microsoft azure', 'engineering', 'data structure', 'wordpress', 'mobile', 'design', 'mysql', 'multimedia', 'play', 'ml', 'control flow', 'ai', 'algorithm', 'python', 'sorting', 'machine learning', 'computer science']
+2023-05-25 19:41:12,169 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:41:15,034 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:41:15,097 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:42:52,205 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:42:54,274 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:42:54,316 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:44:30,557 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:44:32,731 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:44:32,798 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:45:05,862 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:45:08,126 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:45:08,200 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:46:29,213 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:46:31,109 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:46:31,153 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:47:07,809 -- DEBUG -- src.pipeline -- skill_extractor -- (32) -- Text extracted from resume C:/Users/Z004ET6Z/OneDrive - Siemens AG/Desktop/interai/skill_extractor/artifacts/jc.pdf
+2023-05-25 19:47:10,858 -- INFO -- src.pipeline -- skill_extractor -- (36) -- Extracted skills are ['random forest', 'computer vision', 'deep learning', 'rabbitmq', 'machine learning', 'artificial intelligence', 'pytorch', 'plotly', 'inference', 'github', 'flask', 'database', 'network model', 'petroleum engineering', 'data science', 'python', 'encryption', 'opencv', 'anomaly detection', 'numpy', 'software', 'tensorflow', 'object detection', 'engineering', 'simulation', 'support', 'analytics', 'framework', 'ai', 'algorithm', 'time series']
+2023-05-25 19:48:43,522 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:48:45,474 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:48:45,525 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:48:57,441 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:48:59,469 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:48:59,535 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:49:11,371 -- DEBUG -- src.pipeline -- skill_extractor -- (32) -- Text extracted from resume C:/Users/Z004ET6Z/OneDrive - Siemens AG/Desktop/interai/skill_extractor/artifacts/jc.pdf
+2023-05-25 19:49:13,856 -- INFO -- src.pipeline -- skill_extractor -- (36) -- Extracted skills are ['pytorch', 'algorithm', 'network model', 'deep learning', 'object detection', 'artificial intelligence', 'anomaly detection', 'support', 'data science', 'machine learning', 'python', 'computer vision', 'software', 'github', 'engineering', 'random forest', 'tensorflow', 'petroleum engineering', 'ai', 'numpy', 'database', 'plotly', 'simulation', 'analytics', 'framework', 'opencv', 'time series', 'inference', 'flask', 'encryption', 'rabbitmq']
+2023-05-25 19:49:13,857 -- INFO -- src.pipeline -- skill_extractor -- (37) -- ++++++++++++++++++++++=== <class 'list'>
+2023-05-25 19:49:45,291 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:49:47,256 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:49:47,318 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:50:25,497 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:50:27,584 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:50:27,629 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:51:39,393 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:51:41,381 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:51:41,426 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:51:42,289 -- DEBUG -- src.pipeline -- skill_extractor -- (32) -- Text extracted from resume C:/Users/Z004ET6Z/OneDrive - Siemens AG/Desktop/interai/skill_extractor/artifacts/jc.pdf
+2023-05-25 19:51:44,591 -- INFO -- src.pipeline -- skill_extractor -- (36) -- Extracted skills are ['flask', 'encryption', 'pytorch', 'github', 'data science', 'deep learning', 'ai', 'object detection', 'artificial intelligence', 'computer vision', 'framework', 'opencv', 'support', 'analytics', 'plotly', 'anomaly detection', 'software', 'time series', 'engineering', 'python', 'network model', 'rabbitmq', 'inference', 'machine learning', 'petroleum engineering', 'algorithm', 'tensorflow', 'database', 'random forest', 'numpy', 'simulation']
+2023-05-25 19:51:44,592 -- INFO -- src.pipeline -- skill_extractor -- (37) -- ++++++++++++++++++++++=== <class 'list'>
+2023-05-25 19:53:06,010 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:53:12,087 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:53:14,118 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:53:14,189 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:53:19,610 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:53:21,682 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:53:21,741 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:53:27,175 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:53:29,077 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:53:29,117 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:53:59,968 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:54:07,418 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:54:09,473 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:54:09,527 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 19:54:21,306 -- DEBUG -- src.pipeline -- skill_extractor -- (32) -- Text extracted from resume C:/Users/Z004ET6Z/OneDrive - Siemens AG/Desktop/interai/skill_extractor/artifacts/jc.pdf
+2023-05-25 19:54:23,759 -- INFO -- src.pipeline -- skill_extractor -- (36) -- Extracted skills are ['petroleum engineering', 'deep learning', 'numpy', 'engineering', 'python', 'network model', 'algorithm', 'random forest', 'ai', 'flask', 'machine learning', 'framework', 'inference', 'github', 'pytorch', 'software', 'support', 'artificial intelligence', 'plotly', 'simulation', 'computer vision', 'analytics', 'anomaly detection', 'database', 'opencv', 'time series', 'rabbitmq', 'data science', 'object detection', 'tensorflow', 'encryption']
+2023-05-25 19:55:04,181 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 19:55:06,041 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 19:55:06,088 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:07:45,143 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:07:46,999 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:07:47,043 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:08:49,893 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:08:51,760 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:08:51,825 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:09:07,221 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:09:09,242 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:09:09,307 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:09:48,105 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:09:50,058 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:09:50,108 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:10:38,844 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:10:40,369 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:10:40,407 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:19:14,567 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:19:16,295 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:19:16,335 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:43:21,854 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:43:23,495 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:43:23,570 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:43:34,972 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:43:36,637 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:43:36,680 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:44:49,045 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:44:50,542 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:44:50,579 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:45:37,720 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:45:39,459 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:45:39,504 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:46:18,921 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:46:20,688 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:46:20,730 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:47:05,421 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:47:07,104 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:47:07,144 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:49:41,668 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:49:43,306 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:49:43,350 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:50:58,796 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:51:00,562 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:51:00,605 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:51:28,333 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:51:30,208 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:51:30,247 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:51:38,892 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:51:40,549 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:51:40,598 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:52:22,406 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:52:23,882 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:52:23,918 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:53:36,633 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:53:38,301 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:53:38,354 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:53:56,167 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:53:57,861 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:53:57,899 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:54:18,761 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:54:20,605 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:54:20,646 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:54:25,868 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:54:27,575 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:54:27,619 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:55:10,045 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:55:11,806 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:55:11,852 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:56:51,938 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:56:53,861 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:56:53,917 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:57:20,188 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:57:21,934 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:57:21,981 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:58:17,346 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:58:19,075 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:58:19,111 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 20:59:23,263 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 20:59:24,936 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 20:59:24,979 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-25 21:00:06,064 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-25 21:00:08,008 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-25 21:00:08,066 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-29 14:37:38,077 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-29 14:37:40,545 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-29 14:37:40,612 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-29 14:38:18,542 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-29 14:38:20,070 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-29 14:38:20,111 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-29 14:39:21,770 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-29 14:39:23,618 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-29 14:39:23,664 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-29 14:39:29,268 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-29 14:39:31,052 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-29 14:39:31,089 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-29 14:39:36,438 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-29 14:39:38,078 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-29 14:39:38,120 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-29 14:39:50,415 -- INFO -- src.pipeline -- <module> -- (14) -- Logs Folder Created
+2023-05-29 14:39:52,075 -- INFO -- src.pipeline -- <module> -- (18) -- Corpus Loaded in Pipeline
+2023-05-29 14:39:52,114 -- INFO -- src.pipeline -- <module> -- (28) -- Skills Annotations Loaded in Pipeline
+2023-05-29 14:40:00,722 -- DEBUG -- src.pipeline -- skill_extractor -- (32) -- Text extracted from resume <_io.BytesIO object at 0x00000254572FBEF0>
+2023-05-29 14:40:02,700 -- INFO -- src.pipeline -- skill_extractor -- (36) -- Extracted skills are ['encryption', 'anomaly detection', 'random forest', 'rabbitmq', 'deep learning', 'numpy', 'software', 'plotly', 'python', 'computer vision', 'pytorch', 'support', 'analytics', 'simulation', 'github', 'engineering', 'machine learning', 'object detection', 'tensorflow', 'algorithm', 'ai', 'network model', 'inference', 'time series', 'database', 'flask', 'petroleum engineering', 'artificial intelligence', 'opencv', 'data science', 'framework']
+2023-05-29 20:50:51,610 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 20:50:51,662 -- INFO -- src.pipeline -- <module> -- (18) -- DB initialised, collection: Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'interai'), 'interai') ready to use
+2023-05-29 20:50:54,341 -- INFO -- src.pipeline -- <module> -- (22) -- Corpus Loaded in Pipeline
+2023-05-29 20:50:54,397 -- INFO -- src.pipeline -- <module> -- (32) -- Skills Annotations Loaded in Pipeline
+2023-05-29 20:51:16,242 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 20:51:47,206 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 20:55:43,276 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 21:00:00,495 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 21:00:00,496 -- INFO -- src.pipeline -- <module> -- (18) -- DB initialised, collection: Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'interai'), 'interai') ready to use
+2023-05-29 21:00:02,613 -- INFO -- src.pipeline -- <module> -- (22) -- Corpus Loaded in Pipeline
+2023-05-29 21:00:02,754 -- INFO -- src.pipeline -- <module> -- (32) -- Skills Annotations Loaded in Pipeline
+2023-05-29 21:01:32,035 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 21:01:32,036 -- INFO -- src.pipeline -- <module> -- (18) -- DB initialised, collection: Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'interai'), 'interai') ready to use
+2023-05-29 21:01:41,285 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 21:01:41,286 -- INFO -- src.pipeline -- <module> -- (18) -- DB initialised, collection: Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'interai'), 'interai') ready to use
+2023-05-29 21:01:43,300 -- INFO -- src.pipeline -- <module> -- (22) -- Corpus Loaded in Pipeline
+2023-05-29 21:01:43,343 -- INFO -- src.pipeline -- <module> -- (32) -- Skills Annotations Loaded in Pipeline
+2023-05-29 21:01:59,746 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 21:01:59,747 -- INFO -- src.pipeline -- <module> -- (18) -- DB initialised, collection: Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'interai'), 'interai') ready to use
+2023-05-29 21:02:01,563 -- INFO -- src.pipeline -- <module> -- (22) -- Corpus Loaded in Pipeline
+2023-05-29 21:02:01,617 -- INFO -- src.pipeline -- <module> -- (32) -- Skills Annotations Loaded in Pipeline
+2023-05-29 21:02:07,413 -- INFO -- src.pipeline -- pipe_line -- (56) -- Resume received validated, UUID Generated - 6474c5773843b62da908821d
+2023-05-29 21:02:08,099 -- DEBUG -- src.pipeline -- pipe_line -- (58) -- Text extracted from resume Chahar Jaiyesh Resume.pdf
+2023-05-29 21:02:10,159 -- INFO -- src.pipeline -- pipe_line -- (62) -- Extracted skills are ['time series', 'petroleum engineering', 'flask', 'rabbitmq', 'computer vision', 'plotly', 'machine learning', 'data science', 'engineering', 'ai', 'encryption', 'opencv', 'artificial intelligence', 'object detection', 'network model', 'simulation', 'deep learning', 'random forest', 'algorithm', 'inference', 'python', 'anomaly detection', 'github', 'software', 'database', 'framework', 'analytics', 'numpy', 'support', 'tensorflow', 'pytorch']
+2023-05-29 21:06:43,834 -- INFO -- src.pipeline -- <module> -- (15) -- Logs Folder Created
+2023-05-29 21:06:43,835 -- INFO -- src.pipeline -- <module> -- (18) -- DB initialised, collection: Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'interai'), 'interai') ready to use
+2023-05-29 21:06:46,082 -- INFO -- src.pipeline -- <module> -- (22) -- Corpus Loaded in Pipeline
+2023-05-29 21:06:46,153 -- INFO -- src.pipeline -- <module> -- (32) -- Skills Annotations Loaded in Pipeline
+2023-05-29 21:06:52,940 -- INFO -- src.pipeline -- pipe_line -- (56) -- Resume received validated, UUID Generated - 6474c6947d19c23a192a3e11
+2023-05-29 21:06:53,713 -- DEBUG -- src.pipeline -- pipe_line -- (58) -- Text extracted from resume Chahar Jaiyesh Resume.pdf
+2023-05-29 21:06:56,410 -- INFO -- src.pipeline -- pipe_line -- (62) -- Extracted skills are ['object detection', 'simulation', 'algorithm', 'deep learning', 'computer vision', 'database', 'analytics', 'time series', 'rabbitmq', 'flask', 'engineering', 'petroleum engineering', 'machine learning', 'software', 'numpy', 'network model', 'support', 'encryption', 'data science', 'python', 'tensorflow', 'ai', 'pytorch', 'random forest', 'anomaly detection', 'opencv', 'github', 'framework', 'inference', 'artificial intelligence', 'plotly']
+2023-05-29 21:08:07,928 -- INFO -- src.pipeline -- pipe_line -- (56) -- Resume received validated, UUID Generated - 6474c6df7d19c23a192a3e12
+2023-05-29 21:08:08,071 -- DEBUG -- src.pipeline -- pipe_line -- (58) -- Text extracted from resume samin.pdf
+2023-05-29 21:08:08,248 -- INFO -- src.pipeline -- pipe_line -- (62) -- Extracted skills are ['play', 'certificate', 'data science', 'computer science', 'business', 'ai', 'deep learning', 'machine learning', 'natural language processing', 'mobile', 'comprehension', 'google']
+2023-05-29 21:09:42,405 -- INFO -- src.pipeline -- pipe_line -- (56) -- Resume received validated, UUID Generated - 6474c73e7d19c23a192a3e13
+2023-05-29 21:09:42,944 -- DEBUG -- src.pipeline -- pipe_line -- (58) -- Text extracted from resume imran sm.pdf
+2023-05-29 21:09:43,290 -- INFO -- src.pipeline -- pipe_line -- (62) -- Extracted skills are ['git', 'django', 'elasticsearch', 'mysql', 'stack overflow', 'deep learning', 'analytics', 'database', 'oracle', 'kafka', 'flask', 'deployment', 'java', 'medium', 'machine learning', 'software', 'data science', 'rest api', 'computer science', 'python', 'image processing', 'ai', 'tensorflow', 'react', 'slack', 'natural language processing', 'mongodb', 'github', 'logstash', 'distributed computing', 'docker', 'middleware', 'javascript']
+2023-05-29 21:12:08,760 -- INFO -- src.pipeline -- pipe_line -- (56) -- Resume received validated, UUID Generated - 6474c7d07d19c23a192a3e14
+2023-05-29 21:12:09,427 -- DEBUG -- src.pipeline -- pipe_line -- (58) -- Text extracted from resume paras jain people connect.pdf
+2023-05-29 21:12:09,949 -- INFO -- src.pipeline -- pipe_line -- (62) -- Extracted skills are ['git', 'programming language', 'mysql', 'computer vision', 'database', 'security', 'deployment', 'eclipse', 'java', 'medium', 'software', 'unity', 'linux', 'rest api', 'python', 'collaboration', 'design', 'business', 'ai', 'swift', 'spring', 'mongodb', 'maven', 'front end', 'framework', 'spring boot', 'certificate', 'jenkins', 'operating system']

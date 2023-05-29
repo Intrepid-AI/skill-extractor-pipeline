@@ -1,0 +1,7 @@
+log: "logs/skill_extractor.log"
+db_username: "interai"
+db_password: "qwer1234"
+db_host: "localhost"
+db_port: "27017"
+db_name: "interai"
+run_all: "true"
