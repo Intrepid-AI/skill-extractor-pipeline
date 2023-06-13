@@ -20,3 +20,10 @@ class Constants(Enum):
         if os.getenv("APP_ENV") == "PROD"
         else os.path.join("configurations", "app.dev.yaml")
     )
+
+
+    DATA = "data"
+    PROCESSED_DATA = "processed"
+    RESUME = "resume"
+    RESUME_AND_JD = "resume_and_jd"
+    JD = "job_description"
