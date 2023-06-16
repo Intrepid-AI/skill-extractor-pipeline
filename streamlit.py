@@ -1,6 +1,6 @@
 import streamlit as st
 import pdfplumber
-from src.pipeline import skill_extractor_2
+from src.services.spacy_resume_nlp.pipeline import skill_extractor_2
 from src.logger import get_logger
 
 

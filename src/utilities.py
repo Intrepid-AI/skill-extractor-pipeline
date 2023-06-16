@@ -1,13 +1,14 @@
-import pdfplumber
-from src.constants import Constants
-from gensim.models import Word2Vec
-from sklearn.metrics.pairwise import cosine_similarity
 import os
 import numpy as np
 from datetime import datetime 
-import shutil
-import io
 
+import pdfplumber
+
+from src.constants import Constants
+
+from src.logger import get_logger
+
+LOGGER = get_logger(__name__)
 
 def pdf_to_text(pdf_path):
   with pdfplumber.open(pdf_path) as pdf:
@@ -27,18 +28,7 @@ def path_for_saving_pdf(parent_path,pdf_name):
     pdf_savepath = os.path.join(parent_path, pdf_name)
     return pdf_savepath
 
-def get_skills(text,nlp):
-    doc = nlp(text)
-    myset = []
-    subset = []
-    for ent in doc.ents:
-        if ent.label_ == Constants.SKILLS.value:
-            subset.append(ent.text)
-    myset.append(subset)
-    return subset
-
-
-def unique_skills(x):
+def unique_items(x):
     return list(set(x))
 
 def make_directories(dir_list):
@@ -46,24 +36,7 @@ def make_directories(dir_list):
         if os.path.exists(_dir_):
             continue
         os.makedirs(_dir_)
-
-def resume_jd_skills_matching(unique_skills_resume,unique_skills_jd):
-    # Train Word2Vec model on a corpus of skills
-    corpus = [unique_skills_jd,unique_skills_resume] # Combine both lists into a corpus
-    model = Word2Vec(corpus, min_count=1,)  # Train the Word2Vec model
-    # Calculate average vector representations for each list of skills
-    vector1 = np.mean([model.wv[skill] for skill in unique_skills_jd if skill in model.wv], axis=0)
-    vector2 = np.mean([model.wv[skill] for skill in unique_skills_resume if skill in model.wv], axis=0)
-
-    # Reshape the vectors if necessary
-    vector1 = vector1.reshape(1, -1)  # Reshape to a row vector
-    vector2 = vector2.reshape(1, -1)  # Reshape to a row vector
-
-    # Calculate cosine similarity
-    similarity_matrix = cosine_similarity(vector1, vector2)
-    match_percentage = similarity_matrix[0][0]*100
-    return match_percentage
-
+        LOGGER.info("Directory {0} created".format(_dir_))
 
 def directory_structure(uid,type):
     dt = datetime.now()

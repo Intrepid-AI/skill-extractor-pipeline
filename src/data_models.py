@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional, List, Dict 
 
-class Request(BaseModel):
+class RequestSkills(BaseModel):
     """
     DataModel for Request
     """
