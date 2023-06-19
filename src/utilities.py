@@ -39,6 +39,10 @@ def make_directories(dir_list):
         LOGGER.info("Directory {0} created".format(_dir_))
 
 def directory_structure(uid,type):
+    '''
+    Todo:
+        1. Separate create directory structure and file saving
+    '''
     dt = datetime.now()
     month = dt.strftime('%B_%Y')
     date = dt.strftime('%d_%m_%Y')

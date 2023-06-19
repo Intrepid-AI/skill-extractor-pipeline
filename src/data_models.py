@@ -8,7 +8,7 @@ class RequestSkills(BaseModel):
     pdf : str 
 
 class Response(BaseModel):
-    SKILLS: List[str]
+    skills: List[str]
     
     
 class RequestPDF(BaseModel):
@@ -25,6 +25,6 @@ class UpdateDBRequest(BaseModel):
     skills : Optional[List]
     
 class ResponseJDResume(BaseModel):
-    SKILLS: List[str]
+    skills: List[str]
     required_skills : List[str]
     Percentage : Optional[float] 

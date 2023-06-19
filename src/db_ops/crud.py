@@ -1,7 +1,13 @@
 from src.data_models import AddDBRequest,UpdateDBRequest
 from bson import ObjectId
 
+'''
+Todo:
+    1. Dont take collection as a input arg, its anyway fixed
+    2. Create different collection for status, pdf files content, pdf file entities extracted
+'''
 def add_db_request(collection,resume_name : str):
+
     record = {"resume_name":resume_name}
     db_item = collection.insert_one(record)
 

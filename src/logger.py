@@ -11,7 +11,7 @@ if str(ROOT) not in sys.path:
 
 from src.constants import Constants
 
-with open(ROOT / Constants.CONFIG.value) as reader:
+with open(ROOT / Constants.CONFIG_APP.value) as reader:
     file_loc = yaml.load(reader, Loader=yaml.FullLoader)["log"]
 
 logging.basicConfig(format="%(asctime)s -- %(levelname)s -- %(name)s -- %(message)s")

@@ -18,7 +18,9 @@ router = APIRouter()
             response_model=Response,
             response_model_exclude_none=True)
 async def update_item(train_args: RequestSkills):
-    
+    '''
+    To be deprecated
+    '''
     LOGGER.info("Request received for skills_extract : {0}".format(train_args))
     pdf_path = train_args.pdf
     skills = skill_extractor(pdf_path)
@@ -32,7 +34,12 @@ async def update_item(train_args: RequestSkills):
             response_model=Response,
             response_model_exclude_none=True)
 async def update_item_from_pdf(file: UploadFile = File(...)):
-
+    '''
+    Todo : 
+        1. Add DB status initialization
+        2. Add DB status update
+        3. Save uploaded file locally in filestorage and text content in DB collection designated for resume / jd
+    '''
     file_content = await file.read()
     file_object = io.BytesIO(file_content)
     skills = pipeline_skills_extraction(file.filename,file_object)

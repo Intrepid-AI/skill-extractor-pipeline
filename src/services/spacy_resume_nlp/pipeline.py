@@ -85,7 +85,7 @@ def skill_extractor(pdf_path, nlp_model=nlp_spacy, cleaner_fn=cleaning_text):
     uniq_skills = unique_items(skills)
     LOGGER.info(f"Extracted skills are {uniq_skills}")
 
-    extracted_skills = {"SKILLS":uniq_skills}
+    extracted_skills = {"skilss":uniq_skills}
 
     return extracted_skills
 
@@ -133,7 +133,7 @@ def pipeline_skills_extraction(file_name,file_path, nlp_model=nlp_spacy, cleaner
     uniq_skills = unique_items(skills)
     LOGGER.info("Extracted skills are {0}".format(uniq_skills))
     
-    extracted_skills = {"SKILLS":uniq_skills}
+    extracted_skills = {"skills":uniq_skills}
     
     update_db(collection=collection,u_id=uid,resume_text=cleaned_text,skills=uniq_skills)
     
@@ -188,7 +188,7 @@ def pipeline_for_resume_jd_match(resume_file_name,resume_file_path,jd_file_name,
     similiarity_percentage = resume_jd_skills_matching(unique_skills_resume=uniq_skills_resume,unique_skills_jd=uniq_skills_jd)
     LOGGER.info("Match Percentage is : {0} to Requirement".format(similiarity_percentage))
     
-    extracted_skills = {"SKILLS":uniq_skills_resume, "required_skills":uniq_skills_jd, "Percentage":similiarity_percentage}
+    extracted_skills = {"skills":uniq_skills_resume, "required_skills":uniq_skills_jd, "Percentage":similiarity_percentage}
     update_db_jd_resume(collection=collection,u_id=uid,resume_text=cleaned_text_resume,jd_text=cleaned_text_jd,match=similiarity_percentage,skills=uniq_skills_resume,skills_jd=uniq_skills_jd)
 
     return extracted_skills
