@@ -21,9 +21,14 @@ class Constants(Enum):
         else os.path.join("configurations", "app.dev.yaml")
     )
 
-
     DATA = "data"
     PROCESSED_DATA = "processed"
     RESUME = "resume"
     RESUME_AND_JD = "resume_and_jd"
     JD = "job_description"
+
+    MONGO_DB = "ivdb"
+    MONGO_COLLECTIONS = {"task_status":"task_status", 
+                        "resume_dump":"resume_dump",
+                         "jd_dump":"jd_dump",
+                         "task_info":"task_info"}
