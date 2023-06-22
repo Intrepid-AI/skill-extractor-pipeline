@@ -1,6 +1,8 @@
 import os
+from typing import Any
 import numpy as np
 from datetime import datetime 
+import filetype
 
 import pdfplumber
 
@@ -10,7 +12,12 @@ from src.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
+
+
 def pdf_to_text(pdf_path):
+  '''
+  deprecated
+  '''
   with pdfplumber.open(pdf_path) as pdf:
       extracted_text = []
       for page in pdf.pages:
@@ -19,15 +26,66 @@ def pdf_to_text(pdf_path):
       extracted_text = Constants.SPACE.value.join(extracted_text)
       return extracted_text
 
-def saving_pdf(pdf_object,store_path):
-    bytes_content = pdf_object.getvalue()
-    with open(store_path,"wb") as f:
-        f.write(bytes_content)
+class Text_Extractor():
+    '''This class will extract text from the pdf, doc, docx, txt, etc'''
 
-def path_for_saving_pdf(parent_path,pdf_name):
-    pdf_savepath = os.path.join(parent_path, pdf_name)
-    return pdf_savepath
+    def __init__(self):
+        pass
 
+    def _find_file_type(self):
+        pass
+        '''
+        Todo:
+        '''
+    def _extract_text_from_pdf_path(self):
+        pass
+        '''
+        Todo:
+        '''
+    def _extract_text_from_pdf_bytes(self, byte_data):
+
+        with pdfplumber.open(byte_data) as pdf:
+            extracted_text = []
+            
+            for page in pdf.pages:
+                text = page.extract_text()
+                extracted_text.append(text)
+            
+            extracted_text = Constants.SPACE.value.join(extracted_text)
+            
+            return extracted_text
+    
+    def _extract_text_from_doc(self):
+        pass
+        '''
+        Todo:
+        '''
+    def _extract_text_from_other(self):
+        pass
+        '''
+        Todo:
+        1. Support for copy paste in future
+        2. Support for any other file type
+        '''
+        
+    def extract_text(self, file, file_type=None):
+
+        if file_type is None:
+            pass
+            '''
+            Todo:
+                1. Find the file type
+            '''            
+        if file_type is Constants.ALLOWED_FILE_TYPES.value["pdf"]:
+            return self._extract_text_from_pdf_bytes(file)
+        
+        elif file_type is Constants.ALLOWED_FILE_TYPES.value["doc"]:
+            return self._extract_text_from_doc(file)
+
+        else:
+            LOGGER.error("File type not supported")
+            raise Exception("File type not supported")
+        
 def unique_items(x):
     return list(set(x))
 
@@ -38,24 +96,63 @@ def make_directories(dir_list):
         os.makedirs(_dir_)
         LOGGER.info("Directory {0} created".format(_dir_))
 
-def directory_structure(uid,type):
-    '''
-    Todo:
-        1. Separate create directory structure and file saving
-    '''
-    dt = datetime.now()
-    month = dt.strftime('%B_%Y')
-    date = dt.strftime('%d_%m_%Y')
-    data = Constants.DATA.value
-    processed_data = Constants.PROCESSED_DATA.value
-    path = os.path.join(data,processed_data,month,date)
-    uid_path = os.path.join(path,uid)
-    resume_path = os.path.join(uid_path,Constants.RESUME.value)
-    make_directories([resume_path])
-    if type == Constants.RESUME_AND_JD.value:
-        jd_path = os.path.join(uid_path,Constants.JD.value)
-        make_directories([jd_path])
-        return resume_path,jd_path
-    
-    return (resume_path)
+class Directory_Structure():
+    '''This class will create the directory structure for the received data day wise'''
+
+    date_today = None
+    date_old = None
+    todays_folder = None
+
+    def __init__(self):
+        pass
+
+    def _isit_newday(self):
+        '''This function will check if it is a new day or not'''
+        today = datetime.now().date()
+        
+        if today != Directory_Structure.date_today:
+        
+            Directory_Structure.date_old = Directory_Structure.date_today
+            Directory_Structure.date_today = today
+
+            return True
+
+        else:
+        
+            return False
+        
+    def _create_directory_for_newday(self):
+        '''This function will create a directory for new day'''
+        path = self._name_received_data_folder(Directory_Structure.date_today)
+        make_directories([path])
+
+        return path
+
+    def _name_received_data_folder(self, dt):
+        '''This function will name the folder for received data for passed date'''
+        year,month,date = dt.strftime("%Y"), dt.strftime('%B_%Y'), dt.strftime('%d_%m_%Y')
+        data = Constants.RECEIVED_DATA.value
+        data_path = os.path.join(data,year,month,date)
+
+        return data_path
+
+    def __call__(self, *args: Any, **kwds: Any) -> Any:
+        '''This function will return the path for today's folder'''
+        if self._isit_newday():
+            LOGGER.info("New day detected")
+            path = self._create_directory_for_newday()
+            Directory_Structure.todays_folder = path
+            return Directory_Structure.todays_folder
+
+        else:
+
+            return Directory_Structure.todays_folder
  
+def save_file(up_file, filepath):
+
+    with open(filepath, "wb") as buffer:
+        buffer.write(up_file.file.read())
+    
+    LOGGER.debug("File saved at : {0}".format(filepath))
+
+    return filepath
