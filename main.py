@@ -1,3 +1,5 @@
+import os
+
 # Installed libraries
 from fastapi import FastAPI
 
@@ -7,6 +9,13 @@ from src.configs.config import settings
 from src.routers import checks, spacy_resume_nlp
 
 from src.logger import get_logger
+
+from src.constants import Constants
+
+from src.utilities import make_directories
+
+make_directories([Constants.LOGS_FOLDER.value])
+assert os.path.isdir(Constants.LOGS_FOLDER.value) == True  # Logs folder exists
 
 LOGGER = get_logger(__name__)
 
