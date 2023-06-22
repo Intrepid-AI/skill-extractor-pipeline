@@ -61,7 +61,7 @@ class Text_Extractor():
             pass
             '''
             Todo:
-                1. Find the file type
+                1. Find the file type automatically
             '''            
         if file_type == Constants.ALLOWED_FILE_TYPES.value["pdf"]:
             return self._extract_text_from_pdf_bytes(file)

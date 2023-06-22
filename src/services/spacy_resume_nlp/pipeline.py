@@ -95,7 +95,6 @@ def pipeline_skills_extraction(file_object, file_type, save_file_name,
     Todo : 
         1. Use pdf engine to extract text from pdf, it will also verify the mime type
         2. Exception handling of various failure points
-        3. Format response with correct error codes
     '''
 
     ts_start = time.time()
@@ -134,7 +133,6 @@ def pipeline_for_resume_jd_match(file_object_res, file_type_res, save_file_name_
     Todo : 
         1. Use pdf engine to extract text from pdf, it will also verify the mime type
         2. Exception handling of various failure points
-        3. Format response with correct error codes
     '''
     ts_start = time.time()
 
@@ -177,10 +175,6 @@ def pipeline_for_resume_jd_match(file_object_res, file_type_res, save_file_name_
     time_taken = ts_end - ts_start
 
     LOGGER.debug("Resume-JD Matching Pipeline Ended with time taken : {0}".format(time_taken))
-    '''
-    Todo 1 :
-        1. Correct the response and data models for response
-    '''
 
     return res_dict
 
