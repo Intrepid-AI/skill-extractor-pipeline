@@ -13,19 +13,6 @@ from src.logger import get_logger
 LOGGER = get_logger(__name__)
 
 
-
-def pdf_to_text(pdf_path):
-  '''
-  deprecated
-  '''
-  with pdfplumber.open(pdf_path) as pdf:
-      extracted_text = []
-      for page in pdf.pages:
-          text = page.extract_text()
-          extracted_text.append(text)
-      extracted_text = Constants.SPACE.value.join(extracted_text)
-      return extracted_text
-
 class Text_Extractor():
     '''This class will extract text from the pdf, doc, docx, txt, etc'''
 
@@ -69,17 +56,17 @@ class Text_Extractor():
         '''
         
     def extract_text(self, file, file_type=None):
-
+        
         if file_type is None:
             pass
             '''
             Todo:
                 1. Find the file type
             '''            
-        if file_type is Constants.ALLOWED_FILE_TYPES.value["pdf"]:
+        if file_type == Constants.ALLOWED_FILE_TYPES.value["pdf"]:
             return self._extract_text_from_pdf_bytes(file)
         
-        elif file_type is Constants.ALLOWED_FILE_TYPES.value["doc"]:
+        elif file_type == Constants.ALLOWED_FILE_TYPES.value["doc"]:
             return self._extract_text_from_doc(file)
 
         else:
@@ -149,10 +136,28 @@ class Directory_Structure():
             return Directory_Structure.todays_folder
  
 def save_file(up_file, filepath):
-
+    '''This function will save the file at the given path'''
+    
     with open(filepath, "wb") as buffer:
         buffer.write(up_file.file.read())
     
     LOGGER.debug("File saved at : {0}".format(filepath))
 
     return filepath
+
+class Send_Response():
+    '''This class is used to send the response back to the user'''
+    
+    def __init__(self, log_fn, db_fn):
+        self.log_fn = log_fn
+        self.db_fn = db_fn
+
+    def update_response(self, db_client, resp_object, status, code=None, error=None):
+        
+        self.db_fn(db_client, status, resp_object.ID)
+        
+        resp_object.status = status
+        resp_object.code = code if code else resp_object.code
+        resp_object.error = error if error else resp_object.error
+
+        return resp_object
