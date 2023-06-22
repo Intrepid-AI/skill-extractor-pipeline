@@ -20,7 +20,8 @@ with open(Constants.CONFIG_APP.value) as f:
 
 def get_mongo_client():
     """
-    Returns the mongo client object
+    Returns the mongo client object for the database initializing 
+    all the collections from constants
     """
     DB_HOST = app_config.get("db_host")
     DB_PORT = app_config.get("db_port")
@@ -32,7 +33,7 @@ def get_mongo_client():
         LOGGER.debug('Mongo client initialized')
 
         # initialize all mongo collections from constants
-        for coll in Constants.MONGO_COLLECTIONS.value:
+        for _,coll in Constants.MONGO_COLLECTIONS.value.items():
             client[Constants.MONGO_DB.value][coll]
             LOGGER.debug("Collection initialized : {0}".format(coll))
 

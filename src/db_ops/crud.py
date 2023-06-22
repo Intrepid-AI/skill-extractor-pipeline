@@ -2,17 +2,12 @@ from bson import ObjectId
 
 from src.constants import Constants
 
-from src.data_models import AddDBRequest,UpdateDBRequest
+from .schemas import Matching, Extraction
 
-
-'''
-Todo:
-    1. Create proper data models for db insertions whenever happens
-'''
-
-def status_update(client, status : str):
-
-    collection = client[Constants.MONGO_COLLECTIONS.value["task_status"]]
+def status_update(client, coll_name : str, status : str):
+    """Function to update the status of the task in the database"""
+    # import pdb; pdb.set_trace()
+    collection = client[Constants.MONGO_DB.value][coll_name]
 
     record = {"status":status}
 
@@ -20,31 +15,30 @@ def status_update(client, status : str):
 
     return str(db_item.inserted_id)
 
-def add_task_info(client, u_id: str, resume_text:str, skills:None):
+def task_update_extraction(client, ID: str, db_dict : Extraction):
 
-    collection = client[Constants.MONGO_COLLECTIONS.value["task_info"]]
+    collection = client[Constants.MONGO_DB.value][Constants.MONGO_COLLECTIONS.value["coll_extraction"]]
 
-    update= {"resume_text":resume_text,"skills":skills}
-
-    filter = {"_id":ObjectId(u_id)}
-
-    updated = {"$set":update}
-
-    result = collection.update_one(filter, updated)
+    update = db_dict.dict()
     
+    filter = {"_id":ObjectId(ID)}
+    
+    updated = {"$set":update}
+    
+    result = collection.update_one(filter, updated)
+
     return
 
-def update_db_jd_resume(client, u_id: str, resume_text:str, jd_text:str, match:None, skills_res:None, skills_jd:None):
-    '''
-    Todo :
-        1. Combine this in add_task_info after datamodels based argument is enabled IF POSSIBLE
-    '''
-    collection = client[Constants.MONGO_COLLECTIONS.value["task_info"]]
+def task_update_matching(client, ID: str, db_dict : Matching):
 
-    update= {"resume_text":resume_text, "job_description_text":jd_text, "skills_in_resume":skills_res, "skills_required":skills_jd, "matching_percentage":match}
+    collection = client[Constants.MONGO_DB.value][Constants.MONGO_COLLECTIONS.value["coll_matching"]]
+
+    update = db_dict.dict()
     
-    filter = {"_id":ObjectId(u_id)}
+    filter = {"_id":ObjectId(ID)}
     
     updated = {"$set":update}
     
     result = collection.update_one(filter, updated)
+
+    return
