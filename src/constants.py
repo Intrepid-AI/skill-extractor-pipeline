@@ -21,10 +21,12 @@ class Constants(Enum):
         else os.path.join("configurations", "app.dev.yaml")
     )
 
-    DATA = "data"
-    PROCESSED_DATA = "processed"
-    RESUME = "resume"
+    # Received File Paths
+    RECEIVED_DATA = "data"
+    RESUME_PATH = "resume"
+
     RESUME_AND_JD = "resume_and_jd"
+
     JD = "job_description"
 
     MONGO_DB = "ivdb"
@@ -32,3 +34,14 @@ class Constants(Enum):
                         "resume_dump":"resume_dump",
                          "jd_dump":"jd_dump",
                          "task_info":"task_info"}
+    
+    TASK_STATUS = {"progress":"in_progress",
+                   "completed":"completed",
+                    "failed":"failed"
+                }
+    
+    ALLOWED_FILE_TYPES = {"pdf":"application/pdf",
+                                  "doc":"application/msword",
+                                  "docx":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                }
+    
