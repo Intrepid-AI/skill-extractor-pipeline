@@ -1,6 +1,10 @@
 from pydantic import BaseModel
 from typing import Optional, List, Dict 
 
+'''
+Todo :
+    1. Format it as standard json response
+'''
 class RequestSkills(BaseModel):
     """
     DataModel for Request
