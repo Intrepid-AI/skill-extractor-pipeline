@@ -53,35 +53,6 @@ def get_skills(text,nlp_model):
     
     return subset
 
-# def skill_extractor(pdf_path, nlp_model=nlp_spacy, cleaner_fn=cleaning_text):
-#     """_summary_"""
-
-#     extracted_text = pdf_to_text(pdf_path)
-#     LOGGER.debug(f"Text extracted from resume {pdf_path}")
-
-#     cleaned_text = cleaner_fn(extracted_text)
-
-#     skills = get_skills(cleaned_text,nlp_model)
-
-#     uniq_skills = unique_items(skills)
-#     LOGGER.info(f"Extracted skills are {uniq_skills}")
-
-#     extracted_skills = {"skilss":uniq_skills}
-
-#     return extracted_skills
-
-
-# def skill_extractor2d(extracted_text, nlp_model=nlp_spacy, cleaner_fn=cleaning_text):
-#     """_summary_"""
-#     cleaned_text = cleaner_fn(extracted_text)
-    
-#     skills = get_skills(cleaned_text,nlp_model)
-    
-#     uniq_skills = unique_items(skills)
-#     LOGGER.info(f"Extracted skills are {uniq_skills}")
-    
-#     return uniq_skills
-
 '''
 Todo:
 1. Create a class which can be inherited by all the pipeline kind of functions which will have following methods:
@@ -89,8 +60,7 @@ Todo:
 
 def pipeline_skills_extraction(file_object, file_type, save_file_name,
                                nlp_model=nlp_spacy, cleaner_fn=cleaning_text):
-    """_summary_"""
-    
+
     '''
     Todo : 
         1. Use pdf engine to extract text from pdf, it will also verify the mime type

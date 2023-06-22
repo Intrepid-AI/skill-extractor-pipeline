@@ -74,9 +74,6 @@ async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: B
     
     up_filename = file.filename
     
-    u_id = status_update(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"],
-                         status=Constants.TASK_STATUS.value["progress"])
-    
     # Save the file to disk
     save_file_name = os.path.join(file_dir,os.path.splitext(up_filename)[-2] + \
                                 "_"+u_id + os.path.splitext(up_filename)[-1])
@@ -99,10 +96,11 @@ async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: B
     file_content = await file.read()
     file_object = io.BytesIO(file_content)
 
-    
+    # Create a copy of the file object to be used for saving the file to disk
     fobj = copy.copy(file_object)
     background_tasks.add_task(save_file, fobj, save_file_name)
 
+    # Call the pipeline for skills extraction
     try:
         result_dict = pipeline_skills_extraction(file_object, file_type, save_file_name)
     except Exception as e:
@@ -122,10 +120,12 @@ async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: B
     
     time_taken = time.time() - ts_start
 
+    # Create a dictionary to be inserted into the database
     db_dict_extract = Extraction(**response_base.dict(), **result_dict, **{"timetaken": time_taken})  
 
     task_update_extraction(client=client, ID=u_id, db_dict=db_dict_extract)
 
+    # Create a dictionary to be sent as response
     response_skills = ResponseSkills(**response_base.dict(), **result_dict, **{"timetaken": time_taken})
 
     LOGGER.info("Response sent for skills_extract : {0}".format(response_skills.dict()))
@@ -185,15 +185,18 @@ async def update_item_matching(file_resume: UploadFile = File(...),
     file_resume_content = await file_resume.read()
     file_object_res = io.BytesIO(file_resume_content)
 
+    # Create a copy of the file object to be used for saving the file to disk
     fobj_res = copy.copy(file_object_res)
-    background_tasks.add_task(save_file, fobj_res, save_file_name_res)
+    background_tasks.add_task(save_file, fobj_res, save_file_name_res) # Save the file to disk in background
 
     file_jd_content = await file_jd.read()
     file_object_jd = io.BytesIO(file_jd_content)
 
+    # Create a copy of the file object to be used for saving the file to disk
     fobj_jd = copy.copy(file_object_jd)
-    background_tasks.add_task(save_file, fobj_jd, save_file_name_jd)
+    background_tasks.add_task(save_file, fobj_jd, save_file_name_jd) # Save the file to disk in background
 
+    # Call the pipeline for resume jd matching
     try:
         result_dict = pipeline_for_resume_jd_match(file_object_res=file_object_res, file_type_res=file_type_res,
                                                    save_file_name_res=save_file_name_res,
@@ -217,10 +220,12 @@ async def update_item_matching(file_resume: UploadFile = File(...),
     
     time_taken = time.time() - ts_start
     
+    # Create a dictionary to be inserted into the database
     db_dict_match = Matching(**response_base.dict(), **result_dict, **{"timetaken": time_taken})
 
     task_update_matching(client=client, ID=u_id, db_dict=db_dict_match)
 
+    # Create a dictionary to be sent as response
     response_jdres = ResponseJDResume(**response_base.dict(), **result_dict, **{"timetaken": time_taken})
     
     LOGGER.info("Response sent for matching_resume_with_job_description : {0}".format(response_jdres.dict()))

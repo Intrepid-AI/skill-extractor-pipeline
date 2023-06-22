@@ -165,7 +165,8 @@ class Send_Response():
         self.db_fn = db_fn
 
     def update_response(self, db_client, resp_object, status, code=None, error=None):
-        
+        '''This function will update the status in db and response object and return it'''
+
         self.db_fn(db_client, status, resp_object.ID)
         
         resp_object.status = status

@@ -6,7 +6,7 @@ from .schemas import Matching, Extraction
 
 def status_update(client, coll_name : str, status : str):
     """Function to update the status of the task in the database"""
-    # import pdb; pdb.set_trace()
+
     collection = client[Constants.MONGO_DB.value][coll_name]
 
     record = {"status":status}
@@ -16,6 +16,7 @@ def status_update(client, coll_name : str, status : str):
     return str(db_item.inserted_id)
 
 def task_update_extraction(client, ID: str, db_dict : Extraction):
+    '''This function will update the extraction task in the database'''
 
     collection = client[Constants.MONGO_DB.value][Constants.MONGO_COLLECTIONS.value["coll_extraction"]]
 
@@ -30,6 +31,7 @@ def task_update_extraction(client, ID: str, db_dict : Extraction):
     return
 
 def task_update_matching(client, ID: str, db_dict : Matching):
+    '''This function will update the matching task in the database'''
 
     collection = client[Constants.MONGO_DB.value][Constants.MONGO_COLLECTIONS.value["coll_matching"]]
 
