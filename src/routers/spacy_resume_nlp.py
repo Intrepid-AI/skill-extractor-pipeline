@@ -1,6 +1,7 @@
 import io 
 import os
 import time
+import copy
 from functools import partial
 
 from src.logger import get_logger
@@ -79,12 +80,9 @@ async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: B
     # Save the file to disk
     save_file_name = os.path.join(file_dir,os.path.splitext(up_filename)[-2] + \
                                 "_"+u_id + os.path.splitext(up_filename)[-1])
-    
-    background_tasks.add_task(save_file, file, save_file_name)
 
     file_type = file.content_type
 
-    
     # Verify if the file type is supported
     if file_type not in list(Constants.ALLOWED_FILE_TYPES.value.values()):
 
@@ -100,6 +98,10 @@ async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: B
 
     file_content = await file.read()
     file_object = io.BytesIO(file_content)
+
+    
+    fobj = copy.copy(file_object)
+    background_tasks.add_task(save_file, fobj, save_file_name)
 
     try:
         result_dict = pipeline_skills_extraction(file_object, file_type, save_file_name)
@@ -159,11 +161,9 @@ async def update_item_matching(file_resume: UploadFile = File(...),
     # Saving the files in the directory
     save_file_name_res = os.path.join(file_dir,os.path.splitext(up_filename_res)[-2] + \
                                 "_"+u_id + os.path.splitext(up_filename_res)[-1])
-    background_tasks.add_task(save_file, file_resume, save_file_name_res)
 
     save_file_name_jd = os.path.join(file_dir,os.path.splitext(up_filename_jd)[-2] + \
                                 "_"+u_id + os.path.splitext(up_filename_jd)[-1])
-    background_tasks.add_task(save_file, file_jd, save_file_name_jd)
 
     # Verifying the file types
     file_type_res, file_type_jd = file_resume.content_type, file_jd.content_type
@@ -185,8 +185,14 @@ async def update_item_matching(file_resume: UploadFile = File(...),
     file_resume_content = await file_resume.read()
     file_object_res = io.BytesIO(file_resume_content)
 
+    fobj_res = copy.copy(file_object_res)
+    background_tasks.add_task(save_file, fobj_res, save_file_name_res)
+
     file_jd_content = await file_jd.read()
     file_object_jd = io.BytesIO(file_jd_content)
+
+    fobj_jd = copy.copy(file_object_jd)
+    background_tasks.add_task(save_file, fobj_jd, save_file_name_jd)
 
     try:
         result_dict = pipeline_for_resume_jd_match(file_object_res=file_object_res, file_type_res=file_type_res,
