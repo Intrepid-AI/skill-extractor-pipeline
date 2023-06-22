@@ -14,8 +14,7 @@ from src.constants import Constants
 
 from src.utilities import make_directories
 
-make_directories([Constants.LOGS_FOLDER.value])
-assert os.path.isdir(Constants.LOGS_FOLDER.value) == True  # Logs folder exists
+make_directories([Constants.LOGS_FOLDER.value, Constants.RECEIVED_DATA.value])
 
 LOGGER = get_logger(__name__)
 

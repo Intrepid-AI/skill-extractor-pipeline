@@ -164,4 +164,4 @@ cython_debug/
 .vscode
 .coverage
 logs/*
-data_received/*
+received_data/*
