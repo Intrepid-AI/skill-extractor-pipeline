@@ -135,23 +135,11 @@ class Directory_Structure():
 
             return Directory_Structure.todays_folder
 
-# import shutil
-# from pathlib import Path
-# from fastapi import UploadFile
-
 def save_file(upload_file_byte, filepath : str):
     '''This function will save the file at the given path'''
     
     with open(filepath, "wb+") as buffer:
         buffer.write(upload_file_byte.read())
-    
-    # destination = Path(filepath)
-
-    # try:
-    #     with destination.open("wb+") as buffer:
-    #         shutil.copyfileobj(upload_file.file, buffer)
-    # finally:
-    #     upload_file.file.close()
 
     LOGGER.debug("File saved at : {0}".format(filepath))
 
