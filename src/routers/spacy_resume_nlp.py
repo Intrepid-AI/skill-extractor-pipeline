@@ -1,9 +1,11 @@
 import io 
 import os
+import time
+from functools import partial
 
 from src.logger import get_logger
 
-from fastapi import APIRouter, UploadFile, File, BackgroundTasks
+from fastapi import APIRouter, UploadFile, File, BackgroundTasks, HTTPException
 
 from src.data_models import *
 
@@ -12,15 +14,22 @@ from src.constants import Constants
 from src.services.spacy_resume_nlp.pipeline import (
     pipeline_skills_extraction, pipeline_for_resume_jd_match)
 
-from src.db_ops import get_mongo_client, status_update
+from src.db_ops import (get_mongo_client, status_update, task_update_extraction,
+                        task_update_matching, Extraction, Matching)
 
-from src.utilities import Directory_Structure, save_file
+from src.utilities import Directory_Structure, save_file, Send_Response
+
+from src.api_ops import ResponseCodes
+
+### Code Initialization
 
 dir_manager = Directory_Structure()
 
 LOGGER = get_logger(__name__)
 
 router = APIRouter()
+
+###                       
 
 # MongoDB client and database
 client = None
@@ -38,44 +47,90 @@ async def shutdown_event():
     if client is not None:
         client.close()
 
-@router.post("/extract_skills_from_uploaded_resume/", 
+response_manager = Send_Response(LOGGER, status_update)
+
+@router.post("/extract_skills/", 
             tags=["skills_extract"],
-            summary= "Extract Skills from Resume uploaded",
-            response_model=Response,
+            summary= "Extract Skills from file uploaded",
+            response_model=ResponseSkills,
             response_model_exclude_none=True)
 async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: BackgroundTasks = BackgroundTasks()):
 
-    LOGGER.info("Request received for skills_extract : {0}".format(file.filename))
+    ts_start = time.time()
+
+    u_id = status_update(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"],
+                         status=Constants.TASK_STATUS.value["progress"])
+
+    response_base = ResponseBase(**{"ID": u_id,
+                    "task_name": "spacy_skills_extract",
+                    "timestamp": datetime.now().strftime('%F %T.%f')[:-2],
+                    "status": Constants.TASK_STATUS.value["progress"],
+                    "code": 200})
+        
+    LOGGER.info("Request received for extract_skills : {0}".format(file.filename))
     
     file_dir = dir_manager()
+    
     up_filename = file.filename
-    u_id = status_update(client=client, status=Constants.TASK_STATUS.value["progress"])
+    
+    u_id = status_update(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"],
+                         status=Constants.TASK_STATUS.value["progress"])
+    
+    # Save the file to disk
     save_file_name = os.path.join(file_dir,os.path.splitext(up_filename)[-2] + \
-                                u_id + os.path.splitext(up_filename)[-1])
+                                "_"+u_id + os.path.splitext(up_filename)[-1])
+    
     background_tasks.add_task(save_file, file, save_file_name)
 
     file_type = file.content_type
 
+    
+    # Verify if the file type is supported
     if file_type not in list(Constants.ALLOWED_FILE_TYPES.value.values()):
-        '''
-        Todo:
-        1. Create a proper error response code for unknown file type
-        '''
-        return -1
+
+        LOGGER.error("File type not supported for extract_skills : {0}".format(file_type))
+
+        response_base = response_manager.update_response(db_client=client, 
+                                         resp_object=response_base, 
+                                         status=Constants.TASK_STATUS.value["failed"],
+                                         code=ResponseCodes.ERRORS_415.value["code"],
+                                         error=ResponseCodes.ERRORS_415.value["415_filetype"])
+
+        raise HTTPException(status_code=response_base.code, detail=response_base.error)
+
+    file_content = await file.read()
+    file_object = io.BytesIO(file_content)
 
     try:
-        skills = pipeline_skills_extraction(file, file_type, save_file_name, u_id)
+        result_dict = pipeline_skills_extraction(file_object, file_type, save_file_name)
     except Exception as e:
         LOGGER.error("Exception occured in pipeline_skills_extraction : {0}".format(e))
-        status_update(client=client, status=Constants.TASK_STATUS.value["failed"],u_id=u_id)
 
-    status_update(client=client, status=Constants.TASK_STATUS.value["completed"])
+        response_base = response_manager.update_response(db_client=client, 
+                                         resp_object=response_base, 
+                                         status=Constants.TASK_STATUS.value["failed"],
+                                         code=ResponseCodes.ERRORS_500.value["code"],
+                                         error=ResponseCodes.ERRORS_500.value["500_IntServer"])
+
+        raise HTTPException(status_code=response_base.code, detail=response_base.error)
+
+    response_base = response_manager.update_response(db_client=client, 
+                                        resp_object=response_base, 
+                                        status=Constants.TASK_STATUS.value["completed"])
     
-    LOGGER.info("Response sent for skills_extract : {0}".format(skills))
+    time_taken = time.time() - ts_start
 
-    return skills
+    db_dict_extract = Extraction(**response_base.dict(), **result_dict, **{"timetaken": time_taken})  
 
-@router.post("/matching_resume_with_job_description/",
+    task_update_extraction(client=client, ID=u_id, db_dict=db_dict_extract)
+
+    response_skills = ResponseSkills(**response_base.dict(), **result_dict, **{"timetaken": time_taken})
+
+    LOGGER.info("Response sent for skills_extract : {0}".format(response_skills.dict()))
+
+    return response_skills
+
+@router.post("/match_resume_with_jd/",
             tags=["similarity_matching"],
             summary= "Provide Match Percentage for Resume with Job Description",
             response_model=ResponseJDResume,
@@ -84,35 +139,86 @@ async def update_item_matching(file_resume: UploadFile = File(...),
                                file_jd:UploadFile = File(...),
                                 background_tasks: BackgroundTasks = BackgroundTasks()):
 
+    ts_start = time.time()
+
+    u_id = status_update(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_matching"],
+                         status=Constants.TASK_STATUS.value["progress"])
+
+    response_base = ResponseBase(**{"ID": u_id,
+                    "task_name": "spacy_similarity_matching",
+                    "timestamp": datetime.now().strftime('%F %T.%f')[:-2],
+                    "status": Constants.TASK_STATUS.value["progress"],
+                    "code": 200})
+
     LOGGER.info("Request received for matching_resume_with_job_description : {0}, {1}".format(file_resume.filename, file_jd.filename))
 
     file_dir = dir_manager()
+    
     up_filename_res, up_filename_jd = file_resume.filename, file_jd.filename
-    u_id = status_update(client=client, status=Constants.TASK_STATUS.value["progress"])
-
+    
+    # Saving the files in the directory
     save_file_name_res = os.path.join(file_dir,os.path.splitext(up_filename_res)[-2] + \
-                                u_id + os.path.splitext(up_filename_res)[-1])
+                                "_"+u_id + os.path.splitext(up_filename_res)[-1])
     background_tasks.add_task(save_file, file_resume, save_file_name_res)
 
     save_file_name_jd = os.path.join(file_dir,os.path.splitext(up_filename_jd)[-2] + \
-                                u_id + os.path.splitext(up_filename_jd)[-1])
+                                "_"+u_id + os.path.splitext(up_filename_jd)[-1])
     background_tasks.add_task(save_file, file_jd, save_file_name_jd)
 
+    # Verifying the file types
     file_type_res, file_type_jd = file_resume.content_type, file_jd.content_type
 
     if file_type_res not in list(Constants.ALLOWED_FILE_TYPES.value.values()) or \
         file_type_jd not in list(Constants.ALLOWED_FILE_TYPES.value.values()):
-        '''
-        Todo:
-        1. Create a proper error response code for unknown file type
-        '''
-        return -1
+
+        LOGGER.error("File type not supported for matching_resume_with_\
+                     job_description : {0}, {1}".format(file_type_res, file_type_jd))
+
+        response_base = response_manager.update_response(db_client=client, 
+                                         resp_object=response_base, 
+                                         status=Constants.TASK_STATUS.value["failed"],
+                                         code=ResponseCodes.ERRORS_415.value["code"],
+                                         error=ResponseCodes.ERRORS_415.value["415_filetype"])
+
+        raise HTTPException(status_code=response_base.code, detail=response_base.error)
 
     file_resume_content = await file_resume.read()
-    file_resume_object = io.BytesIO(file_resume_content)
+    file_object_res = io.BytesIO(file_resume_content)
+
     file_jd_content = await file_jd.read()
-    file_jd_object = io.BytesIO(file_jd_content)
-    skills = pipeline_for_resume_jd_match(file_resume.filename,file_resume_object,file_jd.filename,file_jd_object)
-    status_update(client=client, status=Constants.TASK_STATUS.value["completed"])
-    LOGGER.info("Response sent for matching_resume_with_job_description : {0}".format(skills))
-    return skills
+    file_object_jd = io.BytesIO(file_jd_content)
+
+    try:
+        result_dict = pipeline_for_resume_jd_match(file_object_res=file_object_res, file_type_res=file_type_res,
+                                                   save_file_name_res=save_file_name_res,
+                                                   file_object_jd=file_object_jd, file_type_jd=file_type_jd,
+                                                   save_file_name_jd=save_file_name_jd)
+
+    except Exception as e:
+        LOGGER.error("Exception occured in pipeline_for_resume_jd_match : {0}".format(e))
+
+        response_base = response_manager.update_response(db_client=client, 
+                                         resp_object=response_base, 
+                                         status=Constants.TASK_STATUS.value["failed"],
+                                         code=ResponseCodes.ERRORS_500.value["code"],
+                                         error=ResponseCodes.ERRORS_500.value["500_IntServer"])
+
+        raise HTTPException(status_code=response_base.code, detail=response_base.error)
+
+    response_base = response_manager.update_response(db_client=client, 
+                                        resp_object=response_base, 
+                                        status=Constants.TASK_STATUS.value["completed"])
+    
+    time_taken = time.time() - ts_start
+    
+    db_dict_match = Matching(**response_base.dict(), **result_dict, **{"timetaken": time_taken})
+
+    task_update_matching(client=client, ID=u_id, db_dict=db_dict_match)
+
+    response_jdres = ResponseJDResume(**response_base.dict(), **result_dict, **{"timetaken": time_taken})
+    
+    LOGGER.info("Response sent for matching_resume_with_job_description : {0}".format(response_jdres.dict()))
+    
+    return response_jdres
+
+
