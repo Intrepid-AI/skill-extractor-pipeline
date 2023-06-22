@@ -22,7 +22,7 @@ class Constants(Enum):
     )
 
     # Received File Paths
-    RECEIVED_DATA = "data"
+    RECEIVED_DATA = "received_data"
     RESUME_PATH = "resume"
 
     RESUME_AND_JD = "resume_and_jd"
@@ -30,18 +30,18 @@ class Constants(Enum):
     JD = "job_description"
 
     MONGO_DB = "ivdb"
-    MONGO_COLLECTIONS = {"task_status":"task_status", 
-                        "resume_dump":"resume_dump",
-                         "jd_dump":"jd_dump",
-                         "task_info":"task_info"}
+    MONGO_COLLECTIONS = {
+                        "coll_extraction":"extraction", 
+                        "coll_matching":"matching"
+                        }
     
     TASK_STATUS = {"progress":"in_progress",
-                   "completed":"completed",
+                   "completed":"success",
                     "failed":"failed"
                 }
     
     ALLOWED_FILE_TYPES = {"pdf":"application/pdf",
-                                  "doc":"application/msword",
-                                  "docx":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        "doc":"application/msword",
+                        "docx":"application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                                 }
     
