@@ -1,0 +1,47 @@
+
+Ingersoll Rand is a global market leader with a broad range of innovative and mission-critical air, fluid, energy and medical technologies, providing services and solutions to increase industrial productivity and efficiency. Since merging with Gardner Denver in early 2020, we have more than 300 years of combined experience and innovative expertise.
+
+JD - 
+
+
+Principal Responsibilities
+
+·       Use of field data to assist in the creation of predictive and prescriptive asset fault signatures.
+
+·       Ability to understand working of compressors, failure modes, root causes and control systems 
+
+·       In-depth knowledge of Statistics and Machine Learning concepts and should be able to apply them to business problems
+
+·       Ability to perform statistical modelling (predictive, regression, classification, hypotheses testing, multivariate analysis, Time Series, Clustering, forecasting, ARIMA) using Python.
+
+·       Write complex SQL queries to perform data extraction from various data sources.
+
+·       Lead development and implementation of "state-of-the art" analytics practices and technology to achieve excellence in field data analytics.
+
+·       Ability to create good visualization in salesforce/google cloud platform with using big query data.
+
+·       Ideal candidate should take full ownership for end-to-end deliverables starting from data collection, cleaning, model validation and bring into production environment and maintain it. Should have experience to maintain model on google cloud platform.
+
+·       Experience in predictive analytics of field installation is must.
+
+·       Identify and implement AI tools to utilize machine learning to provide insights on how to optimize asset operation to minimize cost and maximize reliability.
+
+ 
+
+ 
+
+ 
+
+Candidate Profile
+
+·       Master or Bachelor’s degree in Engineering or Artificial intelligence or computer science
+
+·       At least 3-5 years of demonstrated experience in data analytics for industrial or commercial product settings.
+
+·       Understanding of controls, compressor system are added advantage.
+
+·       Working knowledge of Python, and SQL languages
+
+·       Exposure to cloud based databases – Google cloud platform, data compliance, & integrating ‘big-data’ into initiative that drive business decision.
+
+·       Strong analytical background – must include ability to identify relevant data within the organization and analyze it creatively.
