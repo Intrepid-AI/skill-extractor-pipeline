@@ -48,14 +48,23 @@ async def shutdown_event():
     if client is not None:
         client.close()
 
+'''
+Todo:
+    1. Create skills extract from text only
+'''
+
 response_manager = Send_Response(LOGGER, status_update)
 
-@router.post("/extract_skills/", 
+@router.get("/health", tags=["health_check"])
+async def checkhealth():
+    return {"status":200}
+
+@router.post("/extract_skills_upload/", 
             tags=["skills_extract"],
             summary= "Extract Skills from file uploaded",
             response_model=ResponseSkills,
             response_model_exclude_none=True)
-async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: BackgroundTasks = BackgroundTasks()):
+async def skill_extraction_from_file(file: UploadFile = File(...), background_tasks: BackgroundTasks = BackgroundTasks()):
 
     ts_start = time.time()
 
@@ -137,7 +146,7 @@ async def update_item_from_pdf(file: UploadFile = File(...), background_tasks: B
             summary= "Provide Match Percentage for Resume with Job Description",
             response_model=ResponseJDResume,
             response_model_exclude_none=True)
-async def update_item_matching(file_resume: UploadFile = File(...), 
+async def skill_matching(file_resume: UploadFile = File(...), 
                                file_jd:UploadFile = File(...),
                                 background_tasks: BackgroundTasks = BackgroundTasks()):
 
