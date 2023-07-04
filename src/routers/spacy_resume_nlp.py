@@ -15,7 +15,7 @@ from src.constants import Constants
 from src.services.spacy_resume_nlp.pipeline import (
     pipeline_skills_extraction, pipeline_for_resume_jd_match)
 
-from src.db_ops import (get_mongo_client, status_update, task_update_extraction,
+from src.db_ops import (get_mongo_client,status_add, status_update, task_update_extraction,
                         task_update_matching, Extraction, Matching)
 
 from src.utilities import Directory_Structure, save_file, Send_Response
@@ -68,7 +68,7 @@ async def skill_extraction_from_file(file: UploadFile = File(...), background_ta
 
     ts_start = time.time()
 
-    u_id = status_update(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"],
+    u_id = status_add(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"],
                          status=Constants.TASK_STATUS.value["progress"])
 
     response_base = ResponseBase(**{"ID": u_id,
@@ -94,7 +94,8 @@ async def skill_extraction_from_file(file: UploadFile = File(...), background_ta
 
         LOGGER.error("File type not supported for extract_skills : {0}".format(file_type))
 
-        response_base = response_manager.update_response(db_client=client, 
+        response_base = response_manager.update_response(db_client=client,
+                                         coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"],
                                          resp_object=response_base, 
                                          status=Constants.TASK_STATUS.value["failed"],
                                          code=ResponseCodes.ERRORS_415.value["code"],
@@ -115,7 +116,8 @@ async def skill_extraction_from_file(file: UploadFile = File(...), background_ta
     except Exception as e:
         LOGGER.error("Exception occured in pipeline_skills_extraction : {0}".format(e))
 
-        response_base = response_manager.update_response(db_client=client, 
+        response_base = response_manager.update_response(db_client=client,
+                                         coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"], 
                                          resp_object=response_base, 
                                          status=Constants.TASK_STATUS.value["failed"],
                                          code=ResponseCodes.ERRORS_500.value["code"],
@@ -123,7 +125,8 @@ async def skill_extraction_from_file(file: UploadFile = File(...), background_ta
 
         raise HTTPException(status_code=response_base.code, detail=response_base.error)
 
-    response_base = response_manager.update_response(db_client=client, 
+    response_base = response_manager.update_response(db_client=client,
+                                        coll_name=Constants.MONGO_COLLECTIONS.value["coll_extraction"],  
                                         resp_object=response_base, 
                                         status=Constants.TASK_STATUS.value["completed"])
     
@@ -152,7 +155,7 @@ async def skill_matching(file_resume: UploadFile = File(...),
 
     ts_start = time.time()
 
-    u_id = status_update(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_matching"],
+    u_id = status_add(client, coll_name=Constants.MONGO_COLLECTIONS.value["coll_matching"],
                          status=Constants.TASK_STATUS.value["progress"])
 
     response_base = ResponseBase(**{"ID": u_id,
@@ -183,7 +186,8 @@ async def skill_matching(file_resume: UploadFile = File(...),
         LOGGER.error("File type not supported for matching_resume_with_\
                      job_description : {0}, {1}".format(file_type_res, file_type_jd))
 
-        response_base = response_manager.update_response(db_client=client, 
+        response_base = response_manager.update_response(db_client=client,
+                                         coll_name=Constants.MONGO_COLLECTIONS.value["coll_matching"], 
                                          resp_object=response_base, 
                                          status=Constants.TASK_STATUS.value["failed"],
                                          code=ResponseCodes.ERRORS_415.value["code"],
@@ -215,7 +219,8 @@ async def skill_matching(file_resume: UploadFile = File(...),
     except Exception as e:
         LOGGER.error("Exception occured in pipeline_for_resume_jd_match : {0}".format(e))
 
-        response_base = response_manager.update_response(db_client=client, 
+        response_base = response_manager.update_response(db_client=client,
+                                         coll_name=Constants.MONGO_COLLECTIONS.value["coll_matching"], 
                                          resp_object=response_base, 
                                          status=Constants.TASK_STATUS.value["failed"],
                                          code=ResponseCodes.ERRORS_500.value["code"],
@@ -223,7 +228,8 @@ async def skill_matching(file_resume: UploadFile = File(...),
 
         raise HTTPException(status_code=response_base.code, detail=response_base.error)
 
-    response_base = response_manager.update_response(db_client=client, 
+    response_base = response_manager.update_response(db_client=client,
+                                        coll_name=Constants.MONGO_COLLECTIONS.value["coll_matching"],  
                                         resp_object=response_base, 
                                         status=Constants.TASK_STATUS.value["completed"])
     

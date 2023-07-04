@@ -152,10 +152,10 @@ class Send_Response():
         self.log_fn = log_fn
         self.db_fn = db_fn
 
-    def update_response(self, db_client, resp_object, status, code=None, error=None):
+    def update_response(self, db_client,coll_name, resp_object, status, code=None, error=None):
         '''This function will update the status in db and response object and return it'''
 
-        self.db_fn(db_client, status, resp_object.ID)
+        self.db_fn(db_client,coll_name, status, resp_object.ID)
         
         resp_object.status = status
         resp_object.code = code if code else resp_object.code
